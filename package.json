@@ -1,0 +1,15 @@
+{
+  "name": "growforgood417website",
+  "version": "1.0.0",
+  "description": "This is the github for the GrowForGood417 website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}
