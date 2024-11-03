@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="">
-  <title>About Us | GrowForGood417</title>
+  <title>Plog | GrowForGood417</title>
 </head>
 <body>
   <?php
     include 'header.html'
   ?>
-  <h1>About Us</h1>
+    <h1>Plog</h1>
 </body>
 </html>

@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/view/index.php',
-    './src/view/header.html'
+    './src/view/header.html',
+    '.src/view/testfile.html'
   ],
   theme: {
     extend: {
         colors: {
-            'darkish-green': '#ADD1C0', // Your custom color
+            'darkish-green': '#ADD1C0',
+            'light-green': '#EFF5F2'
         },
     },
 },
