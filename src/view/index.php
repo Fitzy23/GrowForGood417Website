@@ -16,6 +16,10 @@
     <?php include './components/imgcarousel.html'; ?>
   </main>
 
+  <div class="flex flex-row justify-center">
+    <?php include './components/map.html'; ?>
+  </div>
+
   <!-- Footer -->
   <?php include './components/footer.html'; ?>
   

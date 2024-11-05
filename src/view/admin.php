@@ -9,7 +9,7 @@
 </head>
 <body style="font-family: 'Josefin Sans', sans-serif;">
 <?php
-    include 'header.html'
+    include './components/header.html'
   ?>
   <h1 class="text-center text-5xl mt-8">Admin Dashboard</h1>
   <div class="flex justify-center mt-8">
