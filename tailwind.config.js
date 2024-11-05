@@ -2,7 +2,10 @@
 module.exports = {
   content: [
     './src/view/header.html',
-    '.src/view/testfile.html'
+    '.src/view/testfile.html',
+    './src/view/footer.html',
+    './src/view/admin.php',
+
   ],
   theme: {
     extend: {
