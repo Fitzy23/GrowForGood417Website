@@ -5,6 +5,7 @@ module.exports = {
     '.src/view/testfile.html',
     './src/view/footer.html',
     './src/view/admin.php',
+    './src/view/imgcarousel.html',
 
   ],
   theme: {
