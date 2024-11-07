@@ -1,13 +1,17 @@
 <head>
     <link rel="stylesheet" href="output.css">
+
+    <!--Adding viewport to allow different settings for different device sizes-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--Importing font-->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <footer style="font-family: 'Josefin Sans', sans-serif;">
     <div class="items-center flex flex-row  py-3.5 pt-4 bg-darkish-green">
-        <!--Links-->
+        <!--Section 1 (Lefthand items in footer)-->
             <!--Footer links-->
-            <div class="basis-1/3 items-center justify-start pr-14">
+            <div class="basis-1/3 items-center justify-start">
                 <!--Temporary Admin page link-->
                 <div class="text-center"><a href="admin.php"><b>Admin Dashboard</b></a></div>
 
@@ -16,20 +20,34 @@
                 <div class="text-center"><b>Footer Link</b></div>
                 <div class="text-center"><b>Footer Link</b></div>
             </div>
-            <!--Social media links-->
-            <div class="basis-1/3 flex flex-row justify-end">
-                <!--50px by 50px Img of logo (Tiktok) with 5px of right padding-->
-                <div class="pr-5">
-                    <img src="../img/TiktokLogo.webp" alt="TiktokLogo" style="width: 50px">
+
+        <!--Section 2 (Righthand items in footer)-->
+            <div class="justify-end">
+                <!--Stay in the loop section-->
+                <div class="flex flex-row items-center pb-5">
+                    <div class="text-center"><b>Stay in the Loop</b></div>
                 </div>
-                <!--50px by 50px Img of logo (Instagram) with 5px of right padding-->
-                <div class="pr-5">
-                    <img src="../img/InstagramLogo.webp" alt="InstagramLogo" style="width: 50px">        
+
+                <!--Social media links-->
+                <div class="basis-1/3 flex flex-row pr-5">
+                    <!--50px by 50px Img of logo (Tiktok) with 5px of right padding incased in href link-->
+                    <div class="pr-5">
+                        <a href="https://www.tiktok.com/@growforgood417"><img src="../img/TiktokLogo.webp" alt="TiktokLogo" style="width: 50px"></a>
+                    </div>
+                    <!--50px by 50px Img of logo (Instagram) with 5px of right padding incased in href link-->
+                    <div class="pr-5">
+                        <a href="https://www.instagram.com/growforgood417/?hl=en"><img src="../img/InstagramLogo.webp" alt="InstagramLogo" style="width: 50px"> </a>       
+                    </div>
+                    <!--50px by 50px Img of logo (Facebook) with 5px of right padding incased in href link-->
+                    <div class="pr-5">
+                        <a href="https://www.facebook.com/GrowForGood417/"><img src="../img/FacebookLogo.webp" alt="FacebookLogo" style="width: 50px"></a>    
+                    </div>  
                 </div>
-                <!--50px by 50px Img of logo (Facebook) with 5px of right padding-->
-                <div class="pr-5">
-                    <img src="../img/FacebookLogo.webp" alt="FacebookLogo" style="width: 50px">    
+
+                <!--Copy Right-->
+                <div class="flex flex-row justify-end">
+                    <div class="text-center">&copy; 2024</div>
                 </div>  
-            </div>
+            </div> 
     </div>
 </footer>
