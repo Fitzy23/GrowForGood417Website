@@ -1,18 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/view/header.html',
-    '.src/view/testfile.html',
-    './src/view/footer.html',
+    './src/view/components/header.html',
+    './src/view/components/footer.html',
     './src/view/admin.php',
-    './src/view/imgcarousel.html',
+    './src/view/components/imgcarousel.html',
+    './src/view/products.php',
+    './src/view/index.php',
+    './src/view/plantcare.php',
+    './src/view/plog.php',
+    './src/view/contactus.php',
+    '.src/view/productDetails.php',
+    
 
   ],
   theme: {
     extend: {
         colors: {
             'darkish-green': '#ADD1C0',
-            'light-green': '#EFF5F2'
+            'light-green': '#EFF5F2',
         },
     },
 },

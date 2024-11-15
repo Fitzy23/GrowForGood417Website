@@ -1,3 +1,7 @@
+<?php include '../controller/db_connection.php'; 
+$query = $pdo->query("SELECT * FROM PRODUCTS");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,5 +21,3 @@
       <button onclick="window.location.href='adminProduct.php';" class="border-t-2 border-r-2 border-b-2 w-56 border-black hover:bg-darkish-green text-black font-bold transition duration-200 ease-in-out">Products</button>
       <button class="border-l-2 border-r-2 border-t-2 border-b-2 w-56 border-black hover:bg-darkish-green text-black font-bold transition duration-200 ease-in-out">Plog</button>
 </div>
-</body>
-</html>

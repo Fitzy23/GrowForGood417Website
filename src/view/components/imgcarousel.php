@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Carousel</title>
-    <link rel="stylesheet" href="output.css"> <!-- Link to Tailwind CSS file -->
+    <link rel="stylesheet" href="../output.css"> <!-- Link to Tailwind CSS file -->
     <style>
         /* Carousel Functionality */
         .carousel-open:checked + .carousel-item {

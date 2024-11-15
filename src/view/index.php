@@ -13,7 +13,7 @@
 
   <!-- Main Content -->
   <main class="flex-grow p-4">
-    <?php include './components/imgcarousel.html'; ?>
+    <?php include './components/imgcarousel.php'; ?>
   </main>
 
   <div class="flex flex-row justify-center">

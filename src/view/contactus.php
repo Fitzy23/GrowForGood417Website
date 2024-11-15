@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="output.css">
   <title>Contact Us | GrowForGood417</title>
 </head>
 <body class="bg-light-green">
-  <?php
-    include 'header.html'
-  ?>
-  <h1>Contact Us</h1>
+  <!-- Header -->
+  <?php include './components/header.html'; ?>
 
+  <!-- Main Content -->
+  <main class="flex-grow p-4">
+    
+  </main>
+
+  <!-- Footer -->
+  <?php include './components/footer.html'; ?>
 </body>
 </html>
