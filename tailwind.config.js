@@ -11,6 +11,7 @@ module.exports = {
     './src/view/plog.php',
     './src/view/contactus.php',
     '.src/view/productDetails.php',
+    './src/view/login.php',
     
 
   ],
