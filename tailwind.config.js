@@ -12,6 +12,7 @@ module.exports = {
     './src/view/contactus.php',
     '.src/view/productDetails.php',
     './src/view/login.php',
+    './src/view/plantquiz.php',
     
 
   ],

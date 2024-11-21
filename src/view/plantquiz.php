@@ -4,105 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Quiz</title>
+    <link href="output.css" rel="stylesheet">
     <style>
-        .question-container {
-            margin-bottom: 20px;
-        }
         .question-container.hidden {
             display: none;
         }
     </style>
 </head>
-<!--I think the way this will work is that whenever you submit questions I can use if else statements to give points to plants based on the ID's of selected radio boxes, and the currentQuestion Int-->
-<body>
-    <h1>Find Your Perfect Plant</h1>
-    <form id="quiz-form">
-        <!-- Question 1 -->
-        <div class="question-container" id="question1">
-            <p>How would you describe your plant care level?</p>
-            <input type="radio" name="q1" id="q1A"> <label for="q1A">Beginner: I’ve never had a plant before or I’m still learning.</label><br>
-            <input type="radio" name="q1" id="q1B"> <label for="q1B">I’ve had some success but still learning about different plant types.</label><br>
-            <input type="radio" name="q1" id="q1C"> <label for="q1C">I’ve cared for multiple types of plants and have a green thumb!</label><br>
+<body class="bg-green-50 text-gray-800">
+    <?php include './components/header.html'; ?>
+    <div class="container mx-auto p-4 flex justify-center">
+        <div class="w-full max-w-2xl">
+            <h1 class="text-5xl font-bold text-center mb-6">Find Your Perfect Plant</h1>
+            <form id="quiz-form" class="bg-white p-6 rounded-lg shadow-md">
+                <!-- Question 1 -->
+                <div class="question-container" id="question1">
+                    <p class="mb-4 text-2xl text-center">How would you describe your plant care level?</p>
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col text-left">
+                        <label for="q1A" class="block mb-2 text-xl"><input type="radio" name="q1" id="q1A" class="mr-2"> Beginner: I’ve never had a plant before or I’m still learning.</label>
+                        <label for="q1B" class="block mb-2 text-xl"><input type="radio" name="q1" id="q1B" class="mr-2"> I’ve had some success but still learning about different plant types.</label>
+                        <label for="q1C" class="block mb-2 text-xl"><input type="radio" name="q1" id="q1C" class="mr-2"> I’ve cared for multiple types of plants and have a green thumb!</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question-container hidden" id="question2">
+                    <p class="mb-4 text-2xl text-center">What kind of light does the space receive?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q2A" class="block mb-2 text-xl"><input type="radio" name="q2" id="q2A" class="mr-2"> 6+ hours of direct sunlight</label>
+                        <label for="q2B" class="block mb-2 text-xl"><input type="radio" name="q2" id="q2B" class="mr-2"> 3-6 hours of direct sunlight</label>
+                        <label for="q2C" class="block mb-2 text-xl"><input type="radio" name="q2" id="q2C" class="mr-2"> 1-2 hours of direct sunlight</label>
+                        <label for="q2D" class="block mb-2 text-xl"><input type="radio" name="q2" id="q2D" class="mr-2"> Very bright indirect sunlight</label>
+                        <label for="q2E" class="block mb-2 text-xl"><input type="radio" name="q2" id="q2E" class="mr-2"> Lower light</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-container hidden" id="question3">
+                    <p class="mb-4 text-2xl text-center">What’s the temperature like in your space?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q3A" class="block mb-2 text-xl"><input type="radio" name="q3" id="q3A" class="mr-2"> Consistently warm (above 75°F)</label>
+                        <label for="q3B" class="block mb-2 text-xl"><input type="radio" name="q3" id="q3B" class="mr-2"> Moderate (65-75°F)</label>
+                        <label for="q3C" class="block mb-2 text-xl"><input type="radio" name="q3" id="q3C" class="mr-2"> Cooler (Below 65°F)</label>
+    </div>          
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-container hidden" id="question4">
+                    <p class="mb-4 text-2xl text-center">Are there any HVAC vents, drafts, or temperature fluctuations in the space where the plant will live?</p>
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col text-left">
+                            <label for="q4A" class="block mb-2 text-xl"><input type="radio" name="q4" id="q4A" class="mr-2"> Yes, there are vents or drafts nearby. Most plants do not like to have vents or drafts!</label>
+                            <label for="q4B" class="block mb-2 text-xl"><input type="radio" name="q4" id="q4B" class="mr-2"> No, it’s a stable environment.</label>
+                            <label for="q4C" class="block mb-2 text-xl"><input type="radio" name="q4" id="q4C" class="mr-2"> Occasionally, but it’s not extreme.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-container hidden" id="question5">
+                    <p class="mb-4 text-2xl text-center">How much time can you dedicate to plant care?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q5A" class="block mb-2 text-xl"><input type="radio" name="q5" id="q5A" class="mr-2"> Very little, I need something low-maintenance.</label>
+                        <label for="q5B" class="block mb-2 text-xl"><input type="radio" name="q5" id="q5B" class="mr-2"> Moderate, I can water weekly and check in occasionally.</label>
+                        <label for="q5C" class="block mb-2 text-xl"><input type="radio" name="q5" id="q5C" class="mr-2"> A lot, I enjoy checking on my plants daily and maintaining them.</label>
+    </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-container hidden" id="question6">
+                    <p class="mb-4 text-2xl text-center">Do you prefer a plant that grows:</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q6A" class="block mb-2 text-xl"><input type="radio" name="q6" id="q6A" class="mr-2"> Slowly and steadily</label>
+                        <label for="q6B" class="block mb-2 text-xl"><input type="radio" name="q6" id="q6B" class="mr-2"> Fast-growing and full</label>
+    </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question-container hidden" id="question7">
+                    <p class="mb-4 text-2xl text-center">Do you prefer a plant that:</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q7A" class="block mb-2 text-xl"><input type="radio" name="q7" id="q7A" class="mr-2"> Stays compact and upright</label>
+                        <label for="q7B" class="block mb-2 text-xl"><input type="radio" name="q7" id="q7B" class="mr-2"> Trails or vines down</label>
+                        <label for="q7C" class="block mb-2 text-xl"><input type="radio" name="q7" id="q7C" class="mr-2"> Spreads out widely</label>
+    </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question-container hidden" id="question8">
+                    <p class="mb-4 text-2xl text-center">Would you like a flowering plant or one with decorative foliage?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q8A" class="block mb-2 text-xl"><input type="radio" name="q8" id="q8A" class="mr-2"> Flowering</label>
+                        <label for="q8B" class="block mb-2 text-xl"><input type="radio" name="q8" id="q8B" class="mr-2"> Decorative foliage (all of them)</label>
+                        <label for="q8C" class="block mb-2 text-xl"><input type="radio" name="q8" id="q8C" class="mr-2"> Either one is fine!</label>
+    </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question-container hidden" id="question9">
+                    <p class="mb-4 text-2xl text-center">Do you want a plant that purifies the air?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q9A" class="block mb-2 text-xl"><input type="radio" name="q9" id="q9A" class="mr-2"> Yes, air purification is important.</label>
+                        <label for="q9B" class="block mb-2 text-xl"><input type="radio" name="q9" id="q9B" class="mr-2"> It’s a nice bonus, but not essential.</label>
+                        <label for="q9C" class="block mb-2 text-xl"><input type="radio" name="q9" id="q9C" class="mr-2"> Not a priority for me.</label>
+                    </div>
+    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question-container hidden" id="question10">
+                    <p class="mb-4 text-2xl text-center">Are you worried about pets nibbling on your plants?</p>
+                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col text-left">
+                        <label for="q10A" class="block mb-2 text-xl"><input type="radio" name="q10" id="q10A" class="mr-2"> Yes, I need to make sure that the plant is pet safe!</label>
+                        <label for="q10B" class="block mb-2 text-xl"><input type="radio" name="q10" id="q10B" class="mr-2"> No</label>
+                    </div>
+    </div>
+                </div>
+
+                <!-- Button to show the next question -->
+                <div class="flex justify-center pt-4 mt-4">
+                    <button type="button" id="next-button" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 text-xl">Next</button>
+                </div>
+            </form>
+
+            <div id="result" class="mt-6 text-center text-2xl font-semibold"></div>
         </div>
-        
-        <!-- Question 2 -->
-        <div class="question-container hidden" id="question2">
-            <p>What kind of light does the space receive?</p>
-            <input type="radio" name="q2" id="q2A"> <label for="q2A">6+ hours of direct sunlight</label><br>
-            <input type="radio" name="q2" id="q2B"> <label for="q2B">3-6 hours of direct sunlight</label><br>
-            <input type="radio" name="q2" id="q2C"> <label for="q2C">1-2 hours of direct sunlight</label><br>
-            <input type="radio" name="q2" id="q2D"> <label for="q2D">Very bright indirect sunlight</label><br>
-            <input type="radio" name="q2" id="q2E"> <label for="q2E">Lower light</label><br>
-        </div>
-
-        <!-- Question 3 -->
-         <div class="question-container hidden" id="question3">
-            <p>What’s the temperature like in your space?</p>
-            <input type="radio" name="q3" id="q3A"> <label for="q3A">Consistently warm (above 75°F)</label><br>
-            <input type="radio" name="q3" id="q3B"> <label for="q3B">Moderate (65-75°F)</label><br>
-            <input type="radio" name="q3" id="q3C"> <label for="q3C">Cooler (Below 65°F)</label><br>
-            
-         </div>
-
-        <!-- Question 4 -->
-        <div class="question-container hidden" id="question4">
-            <p>Are there any HVAC vents, drafts, or temperature fluctuations in the space where the plant will live?</p>
-            <input type="radio" name="q4" id="q4A"> <label for="q4A">Yes, there are vents or drafts nearby.  Most plants do not like to have vents or drafts!</label><br>
-            <input type="radio" name="q4" id="q4B"> <label for="q4B">No, it’s a stable environment.</label><br>
-            <input type="radio" name="q4" id="q4C"> <label for="q4C">Occasionally, but it’s not extreme.</label><br>
-        </div>
-
-        <!-- Question 5 -->
-        <div class="question-container hidden" id="question5">
-            <p>How much time can you dedicate to plant care?</p>
-            <input type="radio" name="q5" id="q5A"> <label for="q5A">Very little, I need something low-maintenance.</label><br>
-            <input type="radio" name="q5" id="q5B"> <label for="q5B">Moderate, I can water weekly and check in occasionally.</label><br>
-            <input type="radio" name="q5" id="q5C"> <label for="q5C">A lot, I enjoy checking on my plants daily and maintaining them.</label><br>
-        </div>
-
-        <!-- Question 6 -->
-        <div class="question-container hidden" id="question6">
-            <p>Do you prefer a plant that grows: </p>
-            <input type="radio" name="q6" id="q6A"> <label for="q6A">Slowly and steadily</label><br>
-            <input type="radio" name="q6" id="q6B"> <label for="q6B">Fast-growing and full</label><br>
-        </div>
-
-        <!-- Question 7 -->
-        <div class="question-container hidden" id="question7">
-            <p>Do you prefer a plant that: </p>
-            <input type="radio" name="q7" id="q7A"> <label for="q7A">Stays compact and upright</label><br>
-            <input type="radio" name="q7" id="q7B"> <label for="q7B">Trails or vines down</label><br>
-            <input type="radio" name="q7" id="q7C"> <label for="q7C">Spreads out widely</label><br>
-        </div>
-
-        <!-- Question 8 -->
-        <div class="question-container hidden" id="question8">
-            <p>Would you like a flowering plant or one with decorative foliage?</p>
-            <input type="radio" name="q8" id="q8A"> <label for="q8A">Flowering</label><br>
-            <input type="radio" name="q8" id="q8B"> <label for="q8B">Decorative foliage (all of them)</label><br>
-            <input type="radio" name="q8" id="q8C"> <label for="q8C">Either one is fine!</label><br>
-        </div>
-
-        <!-- Question 9 -->
-        <div class="question-container hidden" id="question9">
-            <p>Do you want a plant that purifies the air?</p>
-            <input type="radio" name="q9" id="q9A"> <label for="q9A">Yes, air purification is important.</label><br>
-            <input type="radio" name="q9" id="q9B"> <label for="q9B">It’s a nice bonus, but not essential.</label><br>
-            <input type="radio" name="q9" id="q9C"> <label for="q9C">Not a priority for me.</label><br>
-        </div>
-
-        <!-- Question 10 -->
-        <div class="question-container hidden" id="question10">
-            <p>Are you worried about pets nibbling on your plants?</p>
-            <input type="radio" name="q10" id="q10A"> <label for="q10A">Yes, I need to make sure that the plant is pet safe!</label><br>
-            <input type="radio" name="q10" id="q10B"> <label for="q10B">No</label><br>
-        </div>
-
-        <!-- Button to show the next question -->
-        <button type="button" id="next-button">Next</button>
-    </form>
-
-    <div id="result"></div>
+    </div>
+</body>
+</html>
 
     <script>
         // Initialize plant scores
