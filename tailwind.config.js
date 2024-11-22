@@ -13,6 +13,7 @@ module.exports = {
     '.src/view/productDetails.php',
     './src/view/login.php',
     './src/view/plantquiz.php',
+    './src/view/plantcare.php',
     
 
   ],
