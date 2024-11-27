@@ -12,6 +12,11 @@
 
   <!-- Main Content -->
   <main class="flex-grow p-4">
+    <div class="flex justify-center mb-4">
+      <a href="plantquiz.php" class="bg-darkish-green text-white font-bold py-2 px-4 rounded hover:bg-green-900">
+        Take our Plant Quiz to find a great plant for you!
+      </a>
+    </div>
     <?php
     $csvFile = fopen('./components/category.csv', 'r');
     $categories = [];
@@ -24,7 +29,7 @@
     }
     ?>
 
-    <div class="flex flex-row justify-center">
+    <div class="flex flex-col md:flex-row justify-center">
       <div class="w-full md:w-1/3 p-4 basis-1/2">
         <?php foreach ($categories as $index => $category): ?>
           <div id="category-box" class="category-box p-4 m-2 bg-white shadow-lg rounded cursor-pointer hover:bg-gray-100" onclick="showDetails(<?php echo $index; ?>)">
