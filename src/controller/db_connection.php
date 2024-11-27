@@ -1,7 +1,7 @@
 <?php
     //this all works you just have to have the db set up on your machine, pages that run this file before the main content will not load due to error
     $host = '127.0.0.1'; // or 'localhost'
-    $dbname = '';
+    $dbname = 'grow_for_good_417';
     $username = 'root';
     $password = '';
 

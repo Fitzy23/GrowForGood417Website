@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="output.css"> <!-- Link to Tailwind CSS file -->
   <title>Home | GrowForGood417</title>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-light-green">
 
   <!-- Header -->
   <?php include './components/header.html'; ?>

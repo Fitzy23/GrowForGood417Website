@@ -1,3 +1,11 @@
+<?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['plant'])){
+      $plant = $_POST['plant'];
+      echo "<script>console.log('plant is set, plant is $plant');</script>";
+    }}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +81,12 @@
       // Show the first entry by default
       if (categories.length > 0) {
         showDetails(0);
+      }
+      for (let i = 0; i < categories.length; i++) {
+        if (categories[i][0] === "<?php echo $plant; ?>") {
+          showDetails(i);
+          break;
+        }
       }
     </script>
   </main>

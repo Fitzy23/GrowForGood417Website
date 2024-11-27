@@ -11,11 +11,11 @@
         }
     </style>
 </head>
-<body class="bg-green-50 text-gray-800">
+<body class="bg-light-green text-gray-800">
     <?php include './components/header.html'; ?>
     <div class="container mx-auto p-4 flex justify-center">
         <div class="w-full max-w-2xl">
-            <h1 class="text-5xl font-bold text-center mb-6">Find Your Perfect Plant</h1>
+            <h1 class="text-5xl font-bold text-center mb-6" id="heading">Find Your Perfect Plant</h1>
             <form id="quiz-form" class="bg-white p-6 rounded-lg shadow-md">
                 <!-- Question 1 -->
                 <div class="question-container" id="question1">
@@ -143,7 +143,15 @@
                 </div>
             </form>
 
-            <div id="result" class="mt-6 text-center text-2xl font-semibold"></div>
+            <div id="result" class="mt-6 text-center text-2xl font-semibold hidden"></div>
+
+            <div id="resultButton" class="mt-6 text-center text-2xl font-semibold hidden">
+            <form action="plantCare.php" method="post">
+                <input type="hidden" name="plant" id="plant">
+                <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 text-xl">Go to my plant's care page</button>
+            </form>
+    </div>
+            
         </div>
     </div>
 </body>
@@ -483,71 +491,100 @@
             switch(maxPlant){
                 case 1:
                     recommendedPlant = "Snake Plant";
+                    displayResult(recommendedPlant);
                     break;
                 case 2:
                     recommendedPlant = "Cacti";
+                    displayResult(recommendedPlant);
                     break;
                 case 3:
                     recommendedPlant = "Succulent";
+                    displayResult(recommendedPlant);
                     break;
                 case 4:
                     recommendedPlant = "Large Leaf Philodendron";
+                    displayResult(recommendedPlant);
                     break;
                 case 5:
                     recommendedPlant = "Vining Philodendrons and Pothos";
+                    displayResult(recommendedPlant);
                     break;
                 case 6:
                     recommendedPlant = "Ferns";
+                    displayResult(recommendedPlant);
                     break;
                 case 7:
                     recommendedPlant = "Philodendrons or Pothos on a Moss Pole";
+                    displayResult(recommendedPlant);
                     break;
                 case 8:
                     recommendedPlant = "Orchid Cactus"
+                    displayResult(recommendedPlant);
                     break;
                 case 9:
                     recommendedPlant = "Alocasia";
+                    displayResult(recommendedPlant);
                     break;
                 case 10:
                     recommendedPlant = "Calathea";
+                    displayResult(recommendedPlant);
                     break;
                 case 11:
                     recommendedPlant = "Carnivorous Plants";
+                    displayResult(recommendedPlant);
                     break;
                 case 12:
                     recommendedPlant = "ZZ Plant";
+                    displayResult(recommendedPlant);
                     break;
                 case 13:
                     recommendedPlant = "String of (Pearls, Bananas, Turtles, etc.)";
+                    displayResult(recommendedPlant);
                     break;
                 case 14:
                     recommendedPlant = "Fiddle Leaf Fig";
+                    displayResult(recommendedPlant);
                     break;
                 case 15:
                     recommendedPlant = "Rubber Plant";
+                    displayResult(recommendedPlant);
                     break;
                 case 16:
                     recommendedPlant = "Aglaonema";
+                    displayResult(recommendedPlant);
                     break;
                 case 17:
                     recommendedPlant = "Dieffenbachia";
+                    displayResult(recommendedPlant);
                     break;
                 case 18:
                     recommendedPlant = "Monstera";
+                    displayResult(recommendedPlant);
                     break;
                 case 19:
                     recommendedPlant = "Hoyas";
+                    displayResult(recommendedPlant);
                     break;
                 case 20:
                     recommendedPlant = "Dracaena";
+                    displayResult(recommendedPlant);
                     break;
             }
             
             
 
             // Display the result
-            console.log(recommendedPlant);
-            document.getElementById("result").innerHTML = `Your ideal plant is: ${recommendedPlant}`;
+            function displayResult(recPlant) {
+                document.getElementById("next-button").classList.add('hidden');
+                document.getElementById("heading").classList.add('hidden');
+                document.getElementById("result").classList.remove('hidden');
+                document.getElementById("quiz-form").classList.add('hidden');
+                document.getElementById("quiz-form").classList.remove('bg-white');
+                document.getElementById("plant").value = recPlant;
+                console.log(recommendedPlant);
+                document.getElementById("result").innerHTML = `Your ideal plant is: ${recPlant}`;
+                document.getElementById("resultButton").classList.remove('hidden');
+            }
         }
 
         // Event listener for the "Next" button
