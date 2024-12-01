@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="output.css"> <!-- Link to Tailwind CSS file -->
+  <link rel="stylesheet" href="output.css">
   <title>Home | GrowForGood417</title>
 </head>
 <body class="flex flex-col min-h-screen bg-light-green">
@@ -13,7 +13,11 @@
 
   <!-- Main Content -->
   <main class="flex-grow p-4">
+
     <?php include './components/imgcarousel.php'; ?>
+    <div class="justify-center text-center">
+      <h1 class="text-center text-5xl text-light-green text-border">Let our plant obsessions become your plant obsession!</h1>
+    </div>
   </main>
 
   <div class="flex flex-row justify-center">
