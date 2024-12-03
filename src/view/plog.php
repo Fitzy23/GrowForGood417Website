@@ -27,11 +27,6 @@
     if ($folders === false) {
       die("Error: glob() failed. Check the directory path: $blogPostsDir");
     }
-    echo "<pre>";
-    print_r(htmlspecialchars($csvData[0]['Path']));
-print_r($folders[1]);
-echo "</pre>";
-echo "here";
 $i = 0;
 $j = 1;
 
