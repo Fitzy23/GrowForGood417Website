@@ -6,7 +6,6 @@
   max-width: 1000px;
   position: relative;
   margin: auto;
-  border: 2px solid #000; /* Add border here */
 }
 
 /* Hide the images by default */
@@ -97,19 +96,19 @@
 <!-- Full-width images with number and caption text -->
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="../img/unnamed.png" style="width:50%">
+  <img src="../img/unnamed.png" style="width:100%">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="../img/unnamed.png" style="width:50%">
+  <img src="../img/unnamed.png" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="../img/unnamed.png" style="width:50%">
+  <img src="../img/unnamed.png" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
 

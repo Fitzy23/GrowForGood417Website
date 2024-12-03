@@ -20,12 +20,11 @@
     </div>
   </main>
 
-  <div class="flex flex-row justify-center">
+  <div class="flex flex-row justify-center mb-8">
     <?php include './components/map.html'; ?>
   </div>
 
   <!-- Footer -->
   <?php include './components/footer.html'; ?>
-  
 </body>
 </html>
