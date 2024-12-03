@@ -1,65 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Carousel</title>
-    <link rel="stylesheet" href="../output.css"> <!-- Link to Tailwind CSS file -->
-    <style>
-        /* Carousel Functionality */
-        .carousel-open:checked + .carousel-item {
-            opacity: 100;
-            position: relative;
-            z-index: 10;
-            transition: opacity 0.6s ease-in-out;
-        }
-        
-        .carousel-item {
-            position: absolute;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-        }
-        
-        /* Navigation Controls */
-        .carousel:hover .prev,
-        .carousel:hover .next {
-            display: block;
-        }
-    </style>
-</head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="relative w-full max-w-2xl mx-auto">
-        <div class="carousel">
-            <div class="carousel-inner relative overflow-hidden w-full">
+<style>
+    * {box-sizing:border-box}
 
-                <!-- Carousel Item 1 -->
-                <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-                <div class="carousel-item absolute opacity-0" style="height:50vh;">
-                    <img src="../../img/placeholder800x400.png" class="block w-full h-full object-cover">
-                </div>
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  border: 2px solid #000; /* Add border here */
+}
 
-                <!-- Carousel Item 2 -->
-                <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                <div class="carousel-item absolute opacity-0" style="height:50vh;">
-                    <img src="../../img/placeholder800x400.png" class="block w-full h-full object-cover">
-                </div>
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
 
-                <!-- Carousel Item 3 -->
-                <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                <div class="carousel-item absolute opacity-0" style="height:50vh;">
-                    <img src="../../img/placeholder800x400.png" class="block w-full h-full object-cover">
-                </div>
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+  line-height: 20px;
+  user-select: none;
+}
 
-                <!-- Navigation Controls -->
-                <label for="carousel-3" class="prev control-1 w-10 h-10 mr-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-2" class="next control-1 w-10 h-10 ml-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-                <label for="carousel-1" class="prev control-2 w-10 h-10 mr-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-3" class="next control-2 w-10 h-10 ml-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-                <label for="carousel-2" class="prev control-3 w-10 h-10 mr-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-1" class="next control-3 w-10 h-10 ml-32 absolute cursor-pointer text-3xl font-bold text-gray-800 rounded-full bg-white leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
 
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,1);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+</style>
+ <!-- Slideshow container -->
+ <div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="../img/unnamed.png" style="width:50%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="../img/unnamed.png" style="width:50%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="../img/unnamed.png" style="width:50%">
+  <div class="text">Caption Three</div>
+</div>
+
+<!-- Next and previous buttons -->
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div> 
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+} 
+</script>
