@@ -1,3 +1,7 @@
+<?php 
+  include '../controller//db_connection.php';
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +35,44 @@
       </div>
     </main>
 
-    <div class="flex flex-row justify-center mb-8">
+    <div class="flex flex-col md:flex-row justify-center mb-8 space-y-4 md:space-y-0 md:space-x-4">
+      <div class="w-full md:w-1/2 max-w-md rounded-lg shadow-md overflow-y-auto" style="max-height: 300px;">
       <?php include './components/map.html'; ?>
+      </div>
+      
+      <div class="w-full md:w-1/2 max-w-md p-4 bg-white rounded-lg shadow-md overflow-y-auto" style="max-height: 300px;">
+      <h2 class="text-xl font-bold mb-4">Latest Blogs</h2>
+      <?php
+      try {
+      
+      $query = "SELECT blogID, blogTitle, created_at FROM BLOG ORDER BY created_at DESC LIMIT 5";
+      
+      $stmt = $pdo->prepare($query);
+
+      $stmt->execute();
+      
+      $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      if ($blogs) {
+        foreach ($blogs as $blog) {
+        echo '<div class="mb-2">';
+        echo '<h3 class="text-lg font-semibold">' . htmlspecialchars($blog['blogTitle']) . '</h3>';
+        echo '<div class="flex justify-between items-center">';
+        echo '<p class="text-sm text-gray-600">' . htmlspecialchars($blog['created_at']) . '</p>';
+        echo '<a href="blogPostDetail.php?id=' . $blog['blogID'] . '" class="text-blue-600 hover:underline">Read More</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '<hr class="my-2">';
+        }
+      } else {
+        echo '<p>No blogs found.</p>';
+      }
+      } catch (PDOException $e) {
+      echo '<p>Error: ' . htmlspecialchars($e->getMessage()) . '</p>';
+      }
+      ?>
+      </div>
     </div>
-  </div>
 
   <!-- Footer -->
   <?php include './components/footer.html'; ?>

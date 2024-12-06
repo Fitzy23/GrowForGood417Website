@@ -44,11 +44,6 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="productCategory" class="block text-sm font-medium text-gray-700">Product Category:</label>
-                        <input type="text" id="productCategory" name="productCategory" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-darkish-green focus:border-darkish-green">
-                    </div>
-
-                    <div class="mb-4">
                         <label for="productImage" class="block text-sm font-medium text-gray-700">Product Image:</label>
                         <input type="file" id="productImage" name="productImage" accept="image/*" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-darkish-green focus:border-darkish-green">
                     </div>
