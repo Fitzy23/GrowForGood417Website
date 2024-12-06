@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tiny.cloud/1/APIKEYHERE/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/t4l4pu4p4lppx90hhmzw2hc123vrrglqfndl7nx40d9866an/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <title>Admin Dashboard | GrowForGood417</title>
 </head>
 <body style="font-family: 'Josefin Sans', sans-serif;">
@@ -14,13 +14,7 @@
   ?>
   <?php include './components/adminMenu.html'; ?>
   <div class="container mx-auto p-6">
-  <?php if (file_exists('../controller/blogPost.php')) {
-    echo "Yeah its there";
-  }
-  else {
-    echo "Nope";
-  }
-  ?>
+
   <form action="../controller/blogPost.php" method="POST" enctype="multipart/form-data">
       <!-- Title Input -->
       <div class="mb-4">
@@ -44,9 +38,10 @@
   tinymce.init({
     selector: 'textarea#blogContent',
     plugins: 'image link media lists',  // Add 'lists' plugin for list functionality
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image | formatselect', 
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image', 
     menubar: false,
     automatic_uploads: true,
+    images_upload_url: 'uploadImage.php',  // URL to handle image uploads
     height: 400
   });
 

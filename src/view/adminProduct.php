@@ -49,6 +49,7 @@ $query = $pdo->query("SELECT * FROM PRODUCTS");
             <th>Product Image</th>
             <th>Product Stock</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <?php while($item = $query->fetch(PDO::FETCH_ASSOC)){ ?>
         <tr>
@@ -58,7 +59,8 @@ $query = $pdo->query("SELECT * FROM PRODUCTS");
             <td><?php echo htmlspecialchars($item['productPrice']); ?></td>
             <td><?php echo htmlspecialchars($item['productImage']); ?></td>
             <td><?php echo htmlspecialchars($item['inStock']); ?></td>
-            <td><a href="editProduct.php?id=<?php echo $item['productID']; ?>">Edit</a></td>
+            <td><a href="../controller/editProduct.php?id=<?php echo $item['productID']; ?>">Edit</a></td>
+            <td><a href="../controller/deleteProduct.php?id=<?php echo $item['productID']; ?>">Delete</a></td>
         </tr>
         <?php } ?>
     </table>

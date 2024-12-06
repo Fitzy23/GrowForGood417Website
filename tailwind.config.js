@@ -16,6 +16,7 @@ module.exports = {
     './src/view/plantcare.php',
     './src/view/uploadPost.php',
     './src/view/components/adminMenu.html',
+    './src/view/addProduct.php',
 
     
 
