@@ -1,48 +1,40 @@
+<?php
+include '../controller/db_connection.php'; // Include your database connection
+
+// Fetch all blog posts from the database
+$query = $pdo->query("SELECT * FROM BLOG");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
-  <title>Plog | GrowForGood417</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Blog | GrowForGood417</title>
 </head>
-<body class="bg-light-green">
+<body style="font-family: 'Josefin Sans', sans-serif;">
+
   <!-- Header -->
   <?php include './components/header.html'; ?>
 
-  <!-- Main Content -->
-  <main class="flex-grow p-4">
-    <?php
-    $blogPostsDir = __DIR__ . '/../blogPosts';
-    $csvFilePath = $blogPostsDir . '/blogs.csv';
-
-    $csvFile = fopen($blogPostsDir . '/blogs.csv', 'r');
+  <!-- Blog Post List -->
+  <div class="container mx-auto p-6">
+    <h1 class="text-3xl font-semibold text-center mb-6">Blog Posts</h1>
     
-    $csvData = [];
-    $headers = fgetcsv($csvFile, 1000, ",");
-    while (($data = fgetcsv($csvFile, 1000, ",")) !== FALSE) {
-      $csvData[] = array_combine($headers, $data);
-    }
-    $folders = array_filter(glob($blogPostsDir . '/*'), 'is_dir');
-    if ($folders === false) {
-      die("Error: glob() failed. Check the directory path: $blogPostsDir");
-    }
-$i = 0;
-$j = 1;
-
-while (isset($folders[$j])) {
-  echo "<div class='blog-post bg-white shadow-md rounded-lg p-6 mb-4'>";
-    echo "<a href='blogPost.php?postNum=" . $j . "' class='text-blue-500 hover:underline'>";
-      echo "<h2 class='text-2xl font-bold mb-2'>" . htmlspecialchars($csvData[$i]['Title']) . "</h2>";
-    echo "</a>";
-  echo "</div>";
-
-  $i++;
-  $j++;
-}
-    fclose($csvFile);
-    ?>
-  </main>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <?php while ($post = $query->fetch(PDO::FETCH_ASSOC)): ?>
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold mb-2"><?php echo htmlspecialchars($post['blogTitle']); ?></h2>
+          <p class="text-gray-600 mb-4"><?php echo substr(strip_tags($post['blogContent']), 0, 200) . '...'; ?></p>
+          <p class="text-gray-500 text-sm mb-4">Posted on: <?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
+          <a href="blogPostDetail.php?id=<?php echo $post['blogID']; ?>" class="text-blue-600 hover:underline">Read More</a>
+        </div>
+      <?php endwhile; ?>
+    </div>
+    
+  </div>
 
   <!-- Footer -->
   <?php include './components/footer.html'; ?>

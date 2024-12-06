@@ -14,6 +14,9 @@ module.exports = {
     './src/view/login.php',
     './src/view/plantquiz.php',
     './src/view/plantcare.php',
+    './src/view/uploadPost.php',
+    './src/view/components/adminMenu.html',
+
     
 
   ],
