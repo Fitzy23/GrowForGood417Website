@@ -1,4 +1,12 @@
 <?php
+  session_start();
+  if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
+<?php
 // Include database connection
 include 'db_connection.php';
 

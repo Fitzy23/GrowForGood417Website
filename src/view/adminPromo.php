@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
+
 <?php include '../controller/db_connection.php'; 
 $query = $pdo->query("SELECT * FROM PROMOTION");
 ?>

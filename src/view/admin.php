@@ -4,7 +4,6 @@
     header('Location: login.php');
     exit;
   }
-  echo $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>

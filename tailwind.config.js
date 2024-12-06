@@ -17,6 +17,7 @@ module.exports = {
     './src/view/uploadPost.php',
     './src/view/components/adminMenu.html',
     './src/view/addProduct.php',
+    './src/controller/editProduct.php',
 
     
 

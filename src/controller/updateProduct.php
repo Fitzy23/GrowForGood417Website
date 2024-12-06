@@ -1,4 +1,12 @@
 <?php
+  session_start();
+  if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
+<?php
 // Include database connection
 require_once 'db_connection.php';
 // Check if form is submitted

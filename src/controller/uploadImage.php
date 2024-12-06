@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
+  header('Location: login.php');
+  exit;
+}
+
+
 if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $fileTmpPath = $_FILES['file']['tmp_name'];
     $fileName = $_FILES['file']['name'];
