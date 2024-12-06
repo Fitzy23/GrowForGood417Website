@@ -35,7 +35,7 @@
       <?php include './components/imgcarousel.php'; ?>
       
       <div class="justify-center text-center">
-        <h1 class="text-center text-5xl mt-6 mb-6 text-darkish-green" style="-webkit-text-stroke: 1px black;">Let our plant obsessions become your plant obsession!</h1>
+        <h1 class="text-center text-5xl mt-6 mb-6 text-darkish-green" style="-webkit-text-stroke: 1px black;">Let our plant obsession become your plant obsession!</h1>
       </div>
     </main>
 
