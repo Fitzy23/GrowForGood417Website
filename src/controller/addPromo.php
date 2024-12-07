@@ -7,22 +7,22 @@
 ?>
 
 <?php
-// Include database connection
+//include database connection
 include 'db_connection.php';
 
-// Check if the form is submitted
+//check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form data
+    //get form data
     $promoCaption = $_POST['promoCaption'];
     $promoImg = $_FILES['promoImg']['name'];
 
-    // Validate the form data
+    //validate the form data
     if (empty($promoCaption) || empty($promoImg)) {
         echo "All fields are required.";
         exit;
     }
 
-    // Upload the promo image
+    //upload promo image
     $target_dir = "../img/";
     $target_file = $target_dir . basename($promoImg);
     
@@ -32,20 +32,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Prepare an insert statement
+    //sql query
     $sql = "INSERT INTO PROMOTION (promoImg, promoCaption) VALUES (:promoImg, :promoCaption)";
 
     try {
-        // Prepare the statement
+        //prepare statement
         $stmt = $pdo->prepare($sql);
 
-        // Bind parameters
+        //bind params
         $stmt->bindParam(':promoImg', $target_file);
         $stmt->bindParam(':promoCaption', $promoCaption);
 
-        // Execute the statement
+        //execute
         if ($stmt->execute()) {
-            // Redirect to the promotions page
+            //redirect or display errors
             header("location: ../view/adminPromo.php");
             exit();
         } else {

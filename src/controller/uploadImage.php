@@ -31,11 +31,9 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
         );
         echo json_encode($response);
     } else {
-        header("HTTP/1.1 500 Internal Server Error");
         echo "Error moving the uploaded file.";
     }
 } else {
-    header("HTTP/1.1 500 Internal Server Error");
     echo "Error uploading the file.";
 }
 ?>

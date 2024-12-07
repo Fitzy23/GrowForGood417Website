@@ -1,4 +1,6 @@
+
 <?php
+//check if user is admin
   session_start();
   if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
     header('Location: login.php');
@@ -7,25 +9,25 @@
 ?>
 
 <?php
-// Include database connection
+//include db_connection
 include 'db_connection.php';
 
-// Check if the form is submitted
+//check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form data
+    //assign form data to vars
     $productName = $_POST['productName'];
     $productDescription = $_POST['productDescription'];
     $productPrice = $_POST['productPrice'];
     $productImage = $_FILES['productImage']['name'];
     $inStock = isset($_POST['inStock']) ? 1 : 0;
 
-    // Validate the form data
+    //validate
     if (empty($productName) || empty($productDescription) || empty($productPrice) || empty($productImage)) {
         echo "All fields are required.";
         exit;
     }
 
-    // Upload the product image
+    //upload image
     $target_dir = "../img/";
     $target_file = $target_dir . basename($productImage);
     
@@ -36,23 +38,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 
-    // Prepare an insert statement
+    //sql query
     $sql = "INSERT INTO PRODUCTS (productName, productDesc, productPrice, productImage, inStock) VALUES (:productName, :productDesc, :productPrice, :productImage, :inStock)";
 
     try {
-        // Prepare the statement
+        //prepare statement
         $stmt = $pdo->prepare($sql);
 
-        // Bind parameters
+        //bind params
         $stmt->bindParam(':productName', $productName);
         $stmt->bindParam(':productDesc', $productDescription);
         $stmt->bindParam(':productPrice', $productPrice);
         $stmt->bindParam(':productImage', $target_file);
         $stmt->bindParam(':inStock', $inStock);
 
-        // Execute the statement
+        //execute
         if ($stmt->execute()) {
-            // Redirect to the products page
+            //redirect or display error
             header("location: ./adminProduct.php");
             exit();
         } else {
