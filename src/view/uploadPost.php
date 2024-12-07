@@ -14,7 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="output.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tiny.cloud/1/t4l4pu4p4lppx90hhmzw2hc123vrrglqfndl7nx40d9866an/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <!-- API Key has been removed and regenerated for public repo -->
+  <script src="https://cdn.tiny.cloud/1//tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <title>Admin Dashboard | GrowForGood417</title>
 </head>
 <body style="font-family: 'Josefin Sans', sans-serif;">
