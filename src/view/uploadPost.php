@@ -43,18 +43,18 @@
     </form>
 </div>
 <script>
-  // Initialize TinyMCE editor on the textarea with ID 'blogContent'
+  //initialize TinyMCE editor on the textarea with ID 'blogContent'
   tinymce.init({
     selector: 'textarea#blogContent',
-    plugins: 'image link media lists',  // Add 'lists' plugin for list functionality
+    plugins: 'image link media lists', 
     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | link image', 
     menubar: false,
     automatic_uploads: true,
-    images_upload_url: 'uploadImage.php',  // URL to handle image uploads
+    images_upload_url: 'uploadImage.php', 
     height: 400
   });
 
-  // Ensure TinyMCE content is saved to the textarea before form submission
+  // ensure TinyMCE content is saved to the textarea before form submission
   document.querySelector('form').addEventListener('submit', function (e) {
     tinymce.triggerSave(); // Ensure TinyMCE content is saved to the textarea
     const blogContent = document.getElementById('blogContent');

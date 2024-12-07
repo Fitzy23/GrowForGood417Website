@@ -7,23 +7,23 @@
 ?>
 
 <?php
-// Include the database connection file
+//include the database connection file
 include 'db_connection.php';
 
-// Check if the 'id' parameter is set in the GET request
+//check if the 'id' parameter is set in the GET request
 if (isset($_GET['id'])) {
-    // Get the product ID from the GET request
+    //get the product ID from the GET request
     $product_id = $_GET['id'];
 
-    // Prepare the SQL statement to delete the product
+    //prepare the SQL statement to delete the product
     $sql = "DELETE FROM PRODUCTS WHERE productID = :product_id";
 
-    // Initialize the prepared statement
+    //initialize the prepared statement
     if ($stmt = $pdo->prepare($sql)) {
-        // Bind the product ID to the prepared statement as an integer
+        //bind the product ID to the prepared statement as an integer
         $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
 
-        // Execute the prepared statement
+        //execute the prepared statement
         if ($stmt->execute()) {
             echo "Product deleted successfully.";
         } else {
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
         echo "Error preparing statement: " . $pdo->errorInfo()[2];
     }
 
-    // Close the database connection
+    //close the database connection
     $pdo = null;
 } else {
     echo "No product ID provided.";

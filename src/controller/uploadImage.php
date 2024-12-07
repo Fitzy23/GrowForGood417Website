@@ -15,16 +15,16 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $fileNameCmps = explode(".", $fileName);
     $fileExtension = strtolower(end($fileNameCmps));
 
-    // Specify the directory where the uploaded images will be saved
+    //specify the directory where the uploaded images will be saved
     $uploadFileDir = '../uploaded_images/';
     $dest_path = $uploadFileDir . $fileName;
 
-    // Create the directory if it doesn't exist
+    //create the directory if it doesn't exist
     if (!is_dir($uploadFileDir)) {
         mkdir($uploadFileDir, 0755, true);
     }
 
-    // Move the uploaded file to the destination directory
+    //move the uploaded file to the destination directory
     if (move_uploaded_file($fileTmpPath, $dest_path)) {
         $response = array(
             'location' => $dest_path

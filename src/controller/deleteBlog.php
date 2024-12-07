@@ -7,23 +7,23 @@
 ?>
 
 <?php
-// Include the database connection file
+//include db connection
 include 'db_connection.php';
 
-// Check if the 'id' parameter is set in the GET request
+//check if the 'id' parameter is set in the GET request
 if (isset($_GET['id'])) {
-        // Get the blog ID from the GET request
+        //get the blog ID from the GET request
         $blog_id = $_GET['id'];
 
-        // Prepare the SQL statement to delete the blog post
+        //prepare the SQL statement to delete the blog post
         $sql = "DELETE FROM BLOG WHERE blogID = :blog_id";
 
-        // Initialize the prepared statement
+        //initialize the prepared statement
         if ($stmt = $pdo->prepare($sql)) {
-                // Bind the blog ID to the prepared statement as an integer
+                //bind the blog ID to the prepared statement as an integer
                 $stmt->bindParam(':blog_id', $blog_id, PDO::PARAM_INT);
 
-                // Execute the prepared statement
+                //execute the prepared statement
                 if ($stmt->execute()) {
                         echo "Blog post deleted successfully.";
                 } else {
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
                 echo "Error preparing statement: " . $pdo->errorInfo()[2];
         }
 
-        // Close the database connection
+        //close the database connection
         $pdo = null;
 } else {
         echo "No blog ID provided.";

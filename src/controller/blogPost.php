@@ -13,16 +13,16 @@ include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Get form data
+    //get form data
     $title = htmlspecialchars($_POST['blogTitle']);
-    $content = $_POST['blogContent'];  // Content will come from TinyMCE
+    $content = $_POST['blogContent'];  
     
 
-    // Prepare SQL query to insert the blog post into the database
+    //prepare SQL query to insert the blog post into the database
     $query = $pdo->prepare("INSERT INTO BLOG (blogTitle, blogContent) 
                             VALUES (:blogTitle, :blogContent)");
     
-    // Bind parameters and execute query
+    //bind parameters and execute query
     $query->bindParam(':blogTitle', $title);
     $query->bindParam(':blogContent', $content);
     echo "here";

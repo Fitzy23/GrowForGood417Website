@@ -1,7 +1,7 @@
 <?php
-include '../controller/db_connection.php'; // Include your database connection
+include '../controller/db_connection.php';
 
-// Fetch all blog posts from the database
+//fetch all blog posts from the database
 $query = $pdo->query("SELECT * FROM BLOG");
 ?>
 

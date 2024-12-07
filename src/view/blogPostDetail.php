@@ -5,7 +5,6 @@
         $id = $_GET['id'];
         $query = $pdo->query("SELECT * FROM BLOG WHERE blogID = $id");
         $post = $query->fetch(PDO::FETCH_ASSOC);
-        echo $post['blogTitle'];
     }
 ?>
 <!DOCTYPE html>

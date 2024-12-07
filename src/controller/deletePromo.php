@@ -7,23 +7,23 @@
 ?>
 
 <?php
-// Include the database connection file
+//include the database connection file
 include 'db_connection.php';
 
-// Check if the 'id' parameter is set in the GET request
+//check if the 'id' parameter is set in the GET request
 if (isset($_GET['id'])) {
-    // Get the promo ID from the GET request
+    //get the promo ID from the GET request
     $promo_id = $_GET['id'];
 
-    // Prepare the SQL statement to delete the promotion
+    //prepare the SQL statement to delete the promotion
     $sql = "DELETE FROM PROMOTION WHERE promoID = :promo_id";
 
-    // Initialize the prepared statement
+    //initialize the prepared statement
     if ($stmt = $pdo->prepare($sql)) {
-        // Bind the promo ID to the prepared statement as an integer
+        //bind the promo ID to the prepared statement as an integer
         $stmt->bindParam(':promo_id', $promo_id, PDO::PARAM_INT);
 
-        // Execute the prepared statement
+        //execute the prepared statement
         if ($stmt->execute()) {
             echo "Promotion deleted successfully.";
         } else {
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
         echo "Error preparing statement: " . $pdo->errorInfo()[2];
     }
 
-    // Close the database connection
+    //close the database connection
     $pdo = null;
 } else {
     echo "No promo ID provided.";

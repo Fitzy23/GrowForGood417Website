@@ -29,7 +29,7 @@
     $csvFile = fopen('./components/category.csv', 'r');
     $categories = [];
     if ($csvFile !== FALSE) {
-      $header = fgetcsv($csvFile); // Skip the header row
+      $header = fgetcsv($csvFile); //skip the header row
       while (($row = fgetcsv($csvFile)) !== FALSE) {
         $categories[] = $row;
       }
@@ -65,20 +65,20 @@
         </div>
         `;
         detailsDiv.classList.remove('hidden');
-        detailsDiv.style.height = 'auto'; // Adjust height to fit content
-        // Reset background color for all category boxes
+        detailsDiv.style.height = 'auto'; //adjust height to fit content
+        //reset background color for all category boxes
         document.querySelectorAll('.category-box').forEach(box => {
           box.classList.remove('bg-darkish-green');
           box.classList.add('bg-white');
         });
 
-        // Set background color for the selected category box
+        //set background color for the selected category box
         document.querySelectorAll('.category-box')[index].classList.remove('bg-white');
         document.querySelectorAll('.category-box')[index].classList.add('bg-darkish-green');
         document.querySelectorAll('.category-box')[index].classList.remove('hover:bg-gray-100');
       }
 
-      // Show the first entry by default
+      //show the first entry by default
       if (categories.length > 0) {
         showDetails(0);
       }

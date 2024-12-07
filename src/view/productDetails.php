@@ -14,13 +14,13 @@ include '../controller/db_connection.php';
 include './components/header.html';
 $productID = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Query to get details for the specific product
+//query to get details for the specific product
 $sql = "SELECT * FROM products WHERE productID = :productID";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':productID', $productID, PDO::PARAM_INT);
 $stmt->execute();
 
-// Fetch product details
+//fetch product details
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class="container mx-auto px-4 py-8">

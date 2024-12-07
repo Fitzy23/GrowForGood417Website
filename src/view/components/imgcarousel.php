@@ -1,7 +1,7 @@
 <?php
 
 
-// Fetch promotions from the database
+//get promotions from the database
 $query2 = $pdo->query("SELECT * FROM PROMOTION");
 $promotions = $query2->fetchAll(PDO::FETCH_ASSOC);
 ?>
